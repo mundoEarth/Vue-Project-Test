@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1>About Page</h1>
+    <h1>People Page</h1>
    {{ id }}
 
   <div v-if="person">
@@ -22,9 +22,9 @@
     },
     methods: {
       getData() {
-        // this.id
+        // 
         var that = this;
-        axios.get('https://swapi.co/api/people/1')
+        axios.get('https://swapi.co/api/people/' + this.id)
         .then(function (response) {
           // handle success
           that.person = response;
