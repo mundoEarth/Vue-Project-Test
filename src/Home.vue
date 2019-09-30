@@ -1,6 +1,6 @@
 <template>
 
-     <h1>I am Home</h1>
+     <h1>Welcome to Wander Place.</h1>
      
   
 </template>

@@ -17,12 +17,12 @@ Vue.use(VueRouter);
 export default new VueRouter({
 	routes: [
 		{
-			path: '/', 
+			path: '/',
 			name: 'home',
 			component: Home
 		},
 		{
-			path: '/users/:teamId', 
+			path: '/users/:teamId',
 			name: 'users',
 			component:  Users
 		},
@@ -35,19 +35,17 @@ export default new VueRouter({
 		{
 			path: '/properties',
 			name: 'properties',
-			component:  Properties,
+			component: Properties,
 			children: [
-	        	{ 
-	        		path: 'house', 
-	        		component:  House 
-	        	},
-	        	{ 
-	        		path: 'apartment', 
-	        		component:   Apartment 
-	        	},
-
-		        // ...other sub routes
-		    ]
-		}	    
+				{
+					path: 'house',
+					component: House
+				},
+				{
+					path: 'apartment',
+					component: Apartment
+				}
+			]
+		}
     ]
 });

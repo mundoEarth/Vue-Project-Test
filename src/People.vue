@@ -28,7 +28,7 @@
         .then(function (response) {
           // handle success
           that.person = response;
-          console.log(response);
+          // console.log(response);
         })
       }
     },

@@ -24,7 +24,7 @@
         </b-navbar>
       </div>
       <div class="container">
-        <h1>Let's Go Somewhere</h1>
+        <!-- <h1>Let's Go Somewhere</h1> -->
          <hr>
         
          <router-link to="/">Home</router-link>&nbsp;
