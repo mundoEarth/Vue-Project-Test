@@ -9,11 +9,13 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 
 import { BNavbar } from 'bootstrap-vue'
 import { BImg } from 'bootstrap-vue'
-import { BContainer } from 'bootstrap-vue'
 
-Vue.component('b-container', BContainer)
+
 Vue.component('b-img', BImg)
 Vue.component('b-navbar', BNavbar)
+
+import { LayoutPlugin } from 'bootstrap-vue'
+Vue.use(LayoutPlugin)
 
 
 Vue.config.productionTip = false;

@@ -10,7 +10,7 @@
             <b-collapse id="nav-collapse" is-nav>
               <b-navbar-nav class="ml-auto">
                 <b-nav-item href="#">Home</b-nav-item>
-
+                <b-nav-item href="#">Blog</b-nav-item>
                 <!-- Navbar dropdowns -->
                 <b-nav-item-dropdown text="Lang" right>
                   <b-dropdown-item href="#">EN</b-dropdown-item>
