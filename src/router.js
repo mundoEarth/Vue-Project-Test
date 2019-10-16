@@ -8,6 +8,7 @@ import Users from './Users.vue';
 import Home from './Home.vue';
 
 const People = () => import('./People.vue');
+const Blog = () => import('./Blog.vue');
 const Properties = () => import('./Properties.vue');
 const House  = () =>import('./House.vue');
 const Apartment = () => import('./Apartment.vue');
@@ -20,6 +21,11 @@ export default new VueRouter({
 			path: '/',
 			name: 'home',
 			component: Home
+		},
+		{
+			path: '/blog',
+			name: 'blog',
+			component: Blog
 		},
 		{
 			path: '/users/:teamId',

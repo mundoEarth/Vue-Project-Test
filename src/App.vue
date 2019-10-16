@@ -4,13 +4,13 @@
       <div>
         <b-navbar type="dark" variant="info" toggleable="lg">
           <div class="container">
-            <b-navbar-brand href="#">Mundo Earth</b-navbar-brand>
+            <b-navbar-brand to="/">Mundo Earth</b-navbar-brand>
             <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
             
             <b-collapse id="nav-collapse" is-nav>
               <b-navbar-nav class="ml-auto">
-                <b-nav-item href="#">Home</b-nav-item>
-                <b-nav-item href="#">Blog</b-nav-item>
+                <b-nav-item to="/">Home</b-nav-item>
+                <b-nav-item  to="/blog">Blog</b-nav-item>
                 <!-- Navbar dropdowns -->
                 <b-nav-item-dropdown text="Lang" right>
                   <b-dropdown-item href="#">EN</b-dropdown-item>
