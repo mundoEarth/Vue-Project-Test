@@ -10,7 +10,9 @@ import 'bootstrap-vue/dist/bootstrap-vue.css';
 import { BNavbar } from 'bootstrap-vue'
 import { BImg } from 'bootstrap-vue'
 import { BContainer } from 'bootstrap-vue'
+import { PaginationNavPlugin } from 'bootstrap-vue'
 
+Vue.use(PaginationNavPlugin)
 Vue.component('b-container', BContainer)
 Vue.component('b-img', BImg)
 Vue.component('b-navbar', BNavbar)

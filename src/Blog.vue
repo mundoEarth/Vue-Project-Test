@@ -4,8 +4,9 @@
 		<div class="box">
 			<article>
 				<div class="content" v-for="post in posts" :key="post.id">
+
 					<h1>
-						{{ post.title }}
+						ID {{ post.id }} {{ post.title }}
 					</h1>
 					<p>
 						{{ post.body }}
@@ -13,9 +14,10 @@
 				</div>
 			</article>
 			<div class="pagination">
-				<pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchPosts()"></pagination>
+				<!-- <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchPosts()"></pagination> -->
 			</div>
 		</div>
+		<b-pagination :pagination="pagination" @paginate="fetchPosts()"/>
 	</div>
 </template>
 
@@ -25,7 +27,8 @@ import axios from 'axios'
   
 // window.Vue = require('vue');
 // import Vue from 'vue';
-import PaginationComponent from './components/PaginationComponent';
+// import PaginationComponent from './components/PaginationComponent';
+import BPaginationComponent from './components/BPaginationComponent';
 // Vue.component('pagination', require('./components/PaginationComponent.vue'));
 
 
@@ -34,12 +37,17 @@ export default {
 		return {
 			posts: {},
 			pagination: {
-				'current_page': 1
-			}
+				'current_page': 1,
+				'total' : 1,
+			},			
 		}
 	},
+	mounted() {
+		this.fetchPosts();
+	},
 	components: {
-		'pagination': PaginationComponent,
+		// 'pagination': PaginationComponent,
+		'b-pagination': BPaginationComponent,
 	}, 
     methods: {
         fetchPosts() {
@@ -47,14 +55,14 @@ export default {
                 .then(response => {
                     this.posts = response.data.data.data;
                     this.pagination = response.data.pagination;
+
+                    // console.log(this.pagination);
                 })
                 .catch(error => {
 					window.console.log(error.response.data);
                 });
 		}
     },
-	mounted() {
-		this.fetchPosts();
-	}
+	
 }
 </script>
