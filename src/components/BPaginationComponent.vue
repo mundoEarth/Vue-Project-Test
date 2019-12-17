@@ -12,7 +12,7 @@
 
 <script>
   export default {
-    props: ['pagination'],    
+    props: ['pagination', 'search_blog'],    
     data() {
         return {
     
@@ -20,7 +20,15 @@
     },
     methods: {
         linkGen(pageNum) {
-            return pageNum === 1 ? '?' : `?page=${pageNum}`
+            let pageArgs = '?';
+            if (pageNum > 1)
+                pageArgs = `?page=${pageNum}`;
+
+            if (this.search_blog != '')
+                pageArgs = pageArgs + '&search_blog=' + this.search_blog;
+
+            return pageArgs;
+            // return pageNum === 1 ? '?' : `?page=${pageNum}`
         },       
       // pageGen(pageNum) {
       //   console.log('pageGen => ' + this.links[pageNum - 1].slice(1));

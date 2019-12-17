@@ -2,6 +2,10 @@
 	<div>
 		<h3>Blog Page</h3>
 		<div class="box">
+			<div class="form-group">
+				<input type="text" class="form-control" v-model="search_blog">
+				<button @click="fetchPosts">Search</button>
+			</div>
 			<article>
 				<div class="content" v-for="post in posts" :key="post.id">
 
@@ -17,7 +21,7 @@
 				<!-- <pagination v-if="pagination.last_page > 1" :pagination="pagination" :offset="5" @paginate="fetchPosts()"></pagination> -->
 			</div>
 		</div>
-		<b-pagination :pagination="pagination" @paginate="fetchPosts()"/>
+		<b-pagination :pagination="pagination" :search_blog="search_blog" @paginate="fetchPosts()"/>
 	</div>
 </template>
 
@@ -40,6 +44,7 @@ export default {
 				'current_page': 1,
 				'total' : 1,
 			},			
+			search_blog: '',
 		}
 	},
 	mounted() {
@@ -51,12 +56,13 @@ export default {
 	}, 
     methods: {
         fetchPosts() {
-            axios.get('http://127.0.0.1:8000/api/posts?page=' + this.pagination.current_page)
+            axios.get('http://127.0.0.1:8000/api/posts?page=' + this.pagination.current_page + '&search_blog=' + this.search_blog)
                 .then(response => {
                     this.posts = response.data.data.data;
                     this.pagination = response.data.pagination;
-
-                    // console.log(this.pagination);
+                    // this.search_blog = '';
+                     // console.log(this.pagination);
+                     console.log('search_blog => ' + this.search_blog);
                 })
                 .catch(error => {
 					window.console.log(error.response.data);
