@@ -1,6 +1,7 @@
 <template>
 	<div>
 		<h3>Blog Page</h3>
+		<modal />
 		<div class="box">
 			<div class="form-group">
 				<input type="text" class="form-control" v-model="search_blog">
@@ -22,7 +23,9 @@
 			</div>
 		</div>
 		<b-pagination :pagination="pagination" :search_blog="search_blog" @paginate="fetchPosts()"/>
+
 	</div>
+	
 </template>
 
 
@@ -33,6 +36,7 @@ import axios from 'axios'
 // import Vue from 'vue';
 // import PaginationComponent from './components/PaginationComponent';
 import BPaginationComponent from './components/BPaginationComponent';
+import Modal from './components/Modal';
 // Vue.component('pagination', require('./components/PaginationComponent.vue'));
 
 
@@ -53,6 +57,7 @@ export default {
 	components: {
 		// 'pagination': PaginationComponent,
 		'b-pagination': BPaginationComponent,
+		'modal': Modal,
 	}, 
     methods: {
         fetchPosts() {
@@ -62,12 +67,21 @@ export default {
                     this.pagination = response.data.pagination;
                     // this.search_blog = '';
                      // console.log(this.pagination);
-                     console.log('search_blog => ' + this.search_blog);
+                     // console.log('search_blog => ' + this.search_blog);
                 })
                 .catch(error => {
 					window.console.log(error.response.data);
                 });
-		}
+		},
+		showModal() {
+		      this.$root.$emit('bv::show::modal', 'modal-1', '#btnShow')
+	    },
+	    hideModal() {
+	      this.$root.$emit('bv::hide::modal', 'modal-1', '#btnShow')
+	    },
+	    toggleModal() {
+	      this.$root.$emit('bv::toggle::modal', 'modal-1', '#btnToggle')
+	    }
     },
 	
 }
